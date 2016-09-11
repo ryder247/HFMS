@@ -1,0 +1,131 @@
+﻿@model HospitalManagement.ViewModel.RegistrationViewModel
+
+@{
+    ViewBag.Title = "PatientInfo";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("PatientInfo", "Registration"))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.FacultyName)
+                @Html.TextBoxFor(m => m.FacultyName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FacultyName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FacultyNumber)
+                @Html.TextBoxFor(m => m.FacultyNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FacultyNumber)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.RegistrationNumber)
+                @Html.TextBoxFor(m => m.RegistrationNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RegistrationNumber)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.OtherName)
+                @Html.TextBoxFor(m => m.OtherName, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.DoB)
+                @Html.TextBoxFor(m => m.DoB, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DoB)
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gender)
+                @Html.DropDownListFor(m => m.Gender, new SelectList(Model.Genders, "Id", "Sex"), " ", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MaritalStatus)
+                @Html.DropDownListFor(m => m.MaritalStatus, new SelectList(Model.MaritalStatuses, "Id", "Status"), " ", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Religion)
+                @Html.DropDownListFor(m => m.Religion, new SelectList(Model.Religions, "Id", "Name"), " ", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Occupation)
+                @Html.TextBoxFor(m => m.Occupation, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.PostalAddress)
+                @Html.TextBoxFor(m => m.PostalAddress, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.HomeAddress)
+                @Html.TextBoxFor(m => m.HomeAddress, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Telephone)
+                @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Telephone)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.RelativeName)
+                @Html.TextBoxFor(m => m.RelativeName, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.RelativeName)
+            </div>
+           
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.RelativePhone)
+                @Html.TextBoxFor(m => m.RelativePhone, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.RelativePhone)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.RelativeAddress)
+                @Html.TextBoxFor(m => m.RelativeAddress, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.District)
+                @Html.TextBoxFor(m => m.District, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.SubDistrict)
+                @Html.TextBoxFor(m => m.SubDistrict, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.HealthInsuranceScheme)
+                @Html.TextBoxFor(m => m.HealthInsuranceScheme, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.HealthInsuranceSchemeId)
+                @Html.TextBoxFor(m => m.HealthInsuranceSchemeId, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.HealthInsuranceSchemeId)
+            </div>
+        </div>
+        <div class="col-sm-offset-5 col-xs-7">
+           
+                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-default" type="reset">Reset</button>
+            
+        </div>
+    </div>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

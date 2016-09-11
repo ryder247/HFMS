@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HospitalManagement.Models.Registration>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<button class="btn btn-default">@Html.ActionLink("Create New", "PatientInfo", "Registration")</button>
+<div class="table-responsive">
+    <table class="table">
+       
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+        <tbody>
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>@patient.FirstName @patient.LastName</td>
+                <td>@patient.Gender.Sex</td>
+                <td>@patient.Age</td>
+                <td>
+                    <a href="@Url.Action("EditPatientInfo", "Registration", new {id = patient.Id})">
+                        Edit
+                    </a>
+                </td>
+
+
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
